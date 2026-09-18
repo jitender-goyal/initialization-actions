@@ -407,6 +407,8 @@ function update_kafka_metrics_reporter() {
     return 0
   fi
 
+  # Building tag 2.0.37 produces cruise-control-metrics-reporter-2.0.38-SNAPSHOT.jar
+  # Building tag 3.0.4 produces cruise-control-metrics-reporter-3.0.5-SNAPSHOT.jar
   find "${CRUISE_CONTROL_HOME}"/cruise-control-metrics-reporter/build/libs/ -name "cruise-control-metrics-reporter-*.jar" ! -name "*-sources.jar" ! -name "*-javadoc.jar" ! -name "*-tests.jar" -exec cp {} "${KAFKA_HOME}/libs" \;
   cat >>${KAFKA_CONFIG_FILE} <<EOF
 
